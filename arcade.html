@@ -1,181 +1,317 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <title>Arcade | Hicks &amp; Fowler</title>
-  <meta name="description" content="Play Hicks & Fowler's retro Brick Breaker and Pong arcade games and compete for global high scores.">
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#113f83">
-  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/styles.css">
-  <script defer src="assets/js/main.js"></script>
-  <script defer src="assets/js/arcade.js"></script>
-</head>
-<body>
-<header class="site-header">
-  <div class="wrap nav">
-    <a class="brand" href="index.html" aria-label="Hicks & Fowler home">
-      <span class="brand-mark">H&amp;F</span>
-      <span class="brand-name">Hicks &amp; Fowler</span>
-    </a>
+  <head>
+    <title>Arcade | Hicks &amp; Fowler</title>
+    <meta
+      name="description"
+      content="Play Hicks & Fowler's retro Brick Breaker and Pong arcade games and compete for global high scores."
+    />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#113f83" />
+    <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/styles.css?v=20261003-2" />
+    <script defer src="assets/js/main.js"></script>
+    <script defer src="assets/js/arcade.js?v=20261003-2"></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="wrap nav">
+        <a class="brand" href="index.html" aria-label="Hicks & Fowler home">
+          <span class="brand-mark">H&amp;F</span>
+          <span class="brand-name">Hicks &amp; Fowler</span>
+        </a>
 
-    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">
-      <span></span><span></span>
-      <span class="sr-only">Toggle navigation</span>
-    </button>
+        <button
+          class="menu-btn"
+          type="button"
+          aria-expanded="false"
+          aria-controls="site-nav"
+        >
+          <span></span><span></span>
+          <span class="sr-only">Toggle navigation</span>
+        </button>
 
-    <nav class="nav-links" id="site-nav" aria-label="Primary navigation">
-      <a href="shows.html">Shows</a>
-      <a href="music.html">Music</a>
-      <a href="arcade.html" aria-current="page">Arcade</a>
-      <a href="about.html">About</a>
-      <a href="contact.html" class="nav-cta">Contact <span aria-hidden="true">↗</span></a>
-    </nav>
-  </div>
-</header>
-
-<main class="subpage arcade-page">
-  <section class="page-hero arcade-hero">
-    <div class="wrap narrow">
-      <p class="eyebrow">Insert coin · waste time responsibly</p>
-      <h1>H&amp;F Arcade.<br><span class="serif">Glory lasts forever.</span></h1>
-      <p class="lede">Two tiny retro games. One global leaderboard. Three initials between you and immortality.</p>
-    </div>
-  </section>
-
-  <section class="arcade-section">
-    <div class="wrap">
-      <div class="arcade-switcher" role="tablist" aria-label="Choose a game">
-        <button class="arcade-tab is-active" type="button" role="tab" aria-selected="true" aria-controls="brick-panel" id="brick-tab" data-game-tab="brick">Brick Breaker</button>
-        <button class="arcade-tab" type="button" role="tab" aria-selected="false" aria-controls="pong-panel" id="pong-tab" data-game-tab="pong">Pong Survival</button>
+        <nav class="nav-links" id="site-nav" aria-label="Primary navigation">
+          <a href="shows.html">Shows</a>
+          <a href="music.html">Music</a>
+          <a href="arcade.html" aria-current="page">Arcade</a>
+          <a href="about.html">About</a>
+          <a href="contact.html" class="nav-cta"
+            >Contact <span aria-hidden="true">↗</span></a
+          >
+        </nav>
       </div>
+    </header>
 
-      <section class="game-panel is-active" id="brick-panel" role="tabpanel" aria-labelledby="brick-tab" data-game-panel="brick">
-        <div class="game-layout">
-          <div class="game-cabinet">
-            <div class="cabinet-topline">
-              <div><small>GAME 01</small><strong>BRICK BREAKER</strong></div>
-              <div class="game-stats" aria-live="polite">
-                <span>SCORE <b id="brick-score">000000</b></span>
-                <span>LEVEL <b id="brick-level">1</b></span>
-                <span>LIVES <b id="brick-lives">3</b></span>
-              </div>
-            </div>
-            <div class="screen-shell">
-              <canvas id="brick-canvas" width="760" height="520" tabindex="0" aria-label="Brick Breaker game. Move the paddle with mouse, touch, left and right arrow keys, or A and D."></canvas>
-              <div class="screen-overlay" id="brick-overlay">
-                <strong>BRICK BREAKER</strong>
-                <span>Clear the wall. Protect the floor.</span>
-                <button type="button" class="pixel-btn" id="brick-start">START GAME</button>
-              </div>
-            </div>
-            <div class="cabinet-controls">
-              <span>MOVE: ← → / A D / MOUSE / TOUCH</span>
-              <div>
-                <button type="button" class="mini-control" id="brick-pause">PAUSE</button>
-                <button type="button" class="mini-control" id="brick-mute" aria-pressed="false">SOUND ON</button>
-              </div>
-            </div>
-          </div>
-
-          <aside class="scoreboard" aria-labelledby="brick-leaderboard-title">
-            <div class="scoreboard-head">
-              <span>WORLDWIDE*</span>
-              <h2 id="brick-leaderboard-title">TOP 3</h2>
-            </div>
-            <ol class="score-list" id="brick-leaderboard">
-              <li><span>01</span><b>---</b><strong>------</strong></li>
-              <li><span>02</span><b>---</b><strong>------</strong></li>
-              <li><span>03</span><b>---</b><strong>------</strong></li>
-            </ol>
-            <p class="score-status" id="brick-status" aria-live="polite">Connecting to the mothership…</p>
-            <p class="score-footnote">*Worldwide means anyone who found this website.</p>
-          </aside>
+    <main class="subpage arcade-page">
+      <section class="page-hero arcade-hero">
+        <div class="wrap narrow">
+          <p class="eyebrow">Insert coin · waste time responsibly</p>
+          <h1>
+            H&amp;F Arcade.<br /><span class="serif">Glory lasts forever.</span>
+          </h1>
+          <p class="lede">
+            Two tiny retro games. One global leaderboard. Three initials between
+            you and immortality.
+          </p>
         </div>
       </section>
 
-      <section class="game-panel" id="pong-panel" role="tabpanel" aria-labelledby="pong-tab" data-game-panel="pong" hidden>
-        <div class="game-layout">
-          <div class="game-cabinet">
-            <div class="cabinet-topline">
-              <div><small>GAME 02</small><strong>PONG SURVIVAL</strong></div>
-              <div class="game-stats" aria-live="polite">
-                <span>SCORE <b id="pong-score">000000</b></span>
-                <span>STREAK <b id="pong-streak">0</b></span>
-                <span>LIVES <b id="pong-lives">3</b></span>
-              </div>
-            </div>
-            <div class="screen-shell">
-              <canvas id="pong-canvas" width="760" height="520" tabindex="0" aria-label="Pong Survival game. Move your paddle with mouse, touch, W and S, or the up and down arrow keys."></canvas>
-              <div class="screen-overlay" id="pong-overlay">
-                <strong>PONG SURVIVAL</strong>
-                <span>Every return scores. Miss three times and you're history.</span>
-                <button type="button" class="pixel-btn" id="pong-start">START GAME</button>
-              </div>
-            </div>
-            <div class="cabinet-controls">
-              <span>MOVE: ↑ ↓ / W S / MOUSE / TOUCH</span>
-              <div>
-                <button type="button" class="mini-control" id="pong-pause">PAUSE</button>
-                <button type="button" class="mini-control" id="pong-mute" aria-pressed="false">SOUND ON</button>
-              </div>
-            </div>
+      <section class="arcade-section">
+        <div class="wrap">
+          <div
+            class="arcade-switcher"
+            role="tablist"
+            aria-label="Choose a game"
+          >
+            <button
+              class="arcade-tab is-active"
+              type="button"
+              role="tab"
+              aria-selected="true"
+              aria-controls="brick-panel"
+              id="brick-tab"
+              data-game-tab="brick"
+            >
+              Brick Breaker
+            </button>
+            <button
+              class="arcade-tab"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              aria-controls="pong-panel"
+              id="pong-tab"
+              data-game-tab="pong"
+            >
+              Pong Survival
+            </button>
           </div>
 
-          <aside class="scoreboard" aria-labelledby="pong-leaderboard-title">
-            <div class="scoreboard-head">
-              <span>WORLDWIDE*</span>
-              <h2 id="pong-leaderboard-title">TOP 3</h2>
+          <section
+            class="game-panel is-active"
+            id="brick-panel"
+            role="tabpanel"
+            aria-labelledby="brick-tab"
+            data-game-panel="brick"
+          >
+            <div class="game-layout">
+              <div class="game-cabinet">
+                <div class="cabinet-topline">
+                  <div>
+                    <small>GAME 01</small><strong>BRICK BREAKER</strong>
+                  </div>
+                  <div class="game-stats" aria-live="polite">
+                    <span>SCORE <b id="brick-score">000000</b></span>
+                    <span>LEVEL <b id="brick-level">1</b></span>
+                    <span>LIVES <b id="brick-lives">3</b></span>
+                  </div>
+                </div>
+                <div class="screen-shell">
+                  <canvas
+                    id="brick-canvas"
+                    width="760"
+                    height="520"
+                    tabindex="0"
+                    aria-label="Brick Breaker game. Move the paddle with mouse, touch, left and right arrow keys, or A and D."
+                  ></canvas>
+                  <div class="screen-overlay" id="brick-overlay">
+                    <strong>BRICK BREAKER</strong>
+                    <span>Clear the wall. Protect the floor.</span>
+                    <button type="button" class="pixel-btn" id="brick-start">
+                      START GAME
+                    </button>
+                  </div>
+                </div>
+                <div class="cabinet-controls">
+                  <span>MOVE: ← → / A D / MOUSE / TOUCH</span>
+                  <div>
+                    <button type="button" class="mini-control" id="brick-pause">
+                      PAUSE
+                    </button>
+                    <button
+                      type="button"
+                      class="mini-control"
+                      id="brick-mute"
+                      aria-pressed="false"
+                    >
+                      SOUND ON
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <aside
+                class="scoreboard"
+                aria-labelledby="brick-leaderboard-title"
+              >
+                <div class="scoreboard-head">
+                  <span>WORLDWIDE*</span>
+                  <h2 id="brick-leaderboard-title">TOP 3</h2>
+                </div>
+                <ol class="score-list" id="brick-leaderboard">
+                  <li><span>01</span><b>---</b><strong>------</strong></li>
+                  <li><span>02</span><b>---</b><strong>------</strong></li>
+                  <li><span>03</span><b>---</b><strong>------</strong></li>
+                </ol>
+                <p class="score-status" id="brick-status" aria-live="polite">
+                  Connecting to the mothership…
+                </p>
+                <p class="score-footnote">
+                  *Worldwide means anyone who found this website.
+                </p>
+              </aside>
             </div>
-            <ol class="score-list" id="pong-leaderboard">
-              <li><span>01</span><b>---</b><strong>------</strong></li>
-              <li><span>02</span><b>---</b><strong>------</strong></li>
-              <li><span>03</span><b>---</b><strong>------</strong></li>
-            </ol>
-            <p class="score-status" id="pong-status" aria-live="polite">Connecting to the mothership…</p>
-            <p class="score-footnote">*Worldwide means anyone who found this website.</p>
-          </aside>
+          </section>
+
+          <section
+            class="game-panel"
+            id="pong-panel"
+            role="tabpanel"
+            aria-labelledby="pong-tab"
+            data-game-panel="pong"
+            hidden
+          >
+            <div class="game-layout">
+              <div class="game-cabinet">
+                <div class="cabinet-topline">
+                  <div>
+                    <small>GAME 02</small><strong>PONG SURVIVAL</strong>
+                  </div>
+                  <div class="game-stats" aria-live="polite">
+                    <span>SCORE <b id="pong-score">000000</b></span>
+                    <span>STREAK <b id="pong-streak">0</b></span>
+                    <span>LIVES <b id="pong-lives">3</b></span>
+                  </div>
+                </div>
+                <div class="screen-shell">
+                  <canvas
+                    id="pong-canvas"
+                    width="760"
+                    height="520"
+                    tabindex="0"
+                    aria-label="Pong Survival game. Move your paddle with mouse, touch, W and S, or the up and down arrow keys."
+                  ></canvas>
+                  <div class="screen-overlay" id="pong-overlay">
+                    <strong>PONG SURVIVAL</strong>
+                    <span
+                      >Every return scores. Miss three times and you're
+                      history.</span
+                    >
+                    <button type="button" class="pixel-btn" id="pong-start">
+                      START GAME
+                    </button>
+                  </div>
+                </div>
+                <div class="cabinet-controls">
+                  <span>MOVE: ↑ ↓ / W S / MOUSE / TOUCH</span>
+                  <div>
+                    <button type="button" class="mini-control" id="pong-pause">
+                      PAUSE
+                    </button>
+                    <button
+                      type="button"
+                      class="mini-control"
+                      id="pong-mute"
+                      aria-pressed="false"
+                    >
+                      SOUND ON
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <aside
+                class="scoreboard"
+                aria-labelledby="pong-leaderboard-title"
+              >
+                <div class="scoreboard-head">
+                  <span>WORLDWIDE*</span>
+                  <h2 id="pong-leaderboard-title">TOP 3</h2>
+                </div>
+                <ol class="score-list" id="pong-leaderboard">
+                  <li><span>01</span><b>---</b><strong>------</strong></li>
+                  <li><span>02</span><b>---</b><strong>------</strong></li>
+                  <li><span>03</span><b>---</b><strong>------</strong></li>
+                </ol>
+                <p class="score-status" id="pong-status" aria-live="polite">
+                  Connecting to the mothership…
+                </p>
+                <p class="score-footnote">
+                  *Worldwide means anyone who found this website.
+                </p>
+              </aside>
+            </div>
+          </section>
+
+          <section
+            class="high-score-entry"
+            id="high-score-entry"
+            hidden
+            aria-live="polite"
+          >
+            <div class="high-score-copy">
+              <span class="blink">NEW HIGH SCORE</span>
+              <strong id="high-score-value">000000</strong>
+              <p>You have earned three characters of internet permanence.</p>
+            </div>
+            <form id="initials-form" class="initials-form">
+              <label for="initials-input">ENTER INITIALS</label>
+              <div class="initials-row">
+                <input
+                  id="initials-input"
+                  name="initials"
+                  type="text"
+                  inputmode="text"
+                  maxlength="3"
+                  autocomplete="off"
+                  autocapitalize="characters"
+                  spellcheck="false"
+                  pattern="[A-Za-z0-9]{3}"
+                  required
+                  aria-describedby="initials-help"
+                />
+                <button type="submit" class="pixel-btn">SAVE SCORE</button>
+              </div>
+              <small id="initials-help">Exactly 3 letters or numbers.</small>
+              <p
+                class="submit-status"
+                id="submit-status"
+                aria-live="polite"
+              ></p>
+            </form>
+          </section>
         </div>
       </section>
+    </main>
 
-      <section class="high-score-entry" id="high-score-entry" hidden aria-live="polite">
-        <div class="high-score-copy">
-          <span class="blink">NEW HIGH SCORE</span>
-          <strong id="high-score-value">000000</strong>
-          <p>You have earned three characters of internet permanence.</p>
+    <footer class="site-footer">
+      <div class="wrap footer-inner">
+        <div>
+          <strong>Hicks &amp; Fowler</strong>
+          <span>Albuquerque, New Mexico</span>
         </div>
-        <form id="initials-form" class="initials-form">
-          <label for="initials-input">ENTER INITIALS</label>
-          <div class="initials-row">
-            <input id="initials-input" name="initials" type="text" inputmode="text" maxlength="3" autocomplete="off" autocapitalize="characters" spellcheck="false" pattern="[A-Za-z0-9]{3}" required aria-describedby="initials-help">
-            <button type="submit" class="pixel-btn">SAVE SCORE</button>
-          </div>
-          <small id="initials-help">Exactly 3 letters or numbers.</small>
-          <p class="submit-status" id="submit-status" aria-live="polite"></p>
-        </form>
-      </section>
-    </div>
-  </section>
-</main>
-
-<footer class="site-footer">
-  <div class="wrap footer-inner">
-    <div>
-      <strong>Hicks &amp; Fowler</strong>
-      <span>Albuquerque, New Mexico</span>
-    </div>
-    <div class="footer-links">
-      <a href="shows.html">Shows</a>
-      <a href="music.html">Music</a>
-      <a href="arcade.html">Arcade</a>
-      <a href="contact.html">Contact</a>
-      <a href="https://www.facebook.com/hicksphillyfowler" target="_blank" rel="noopener">Facebook ↗</a>
-    </div>
-    <small>© <span data-year></span> Hicks &amp; Fowler</small>
-  </div>
-</footer>
-</body>
+        <div class="footer-links">
+          <a href="shows.html">Shows</a>
+          <a href="music.html">Music</a>
+          <a href="arcade.html">Arcade</a>
+          <a href="contact.html">Contact</a>
+          <a
+            href="https://www.facebook.com/hicksphillyfowler"
+            target="_blank"
+            rel="noopener"
+            >Facebook ↗</a
+          >
+        </div>
+        <small>© <span data-year></span> Hicks &amp; Fowler</small>
+      </div>
+    </footer>
+  </body>
 </html>
