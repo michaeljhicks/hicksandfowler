@@ -708,7 +708,8 @@ button, input, textarea { font: inherit; }
 #brick-canvas:focus-visible,
 #pong-canvas:focus-visible,
 #snake-canvas:focus-visible,
-#invaders-canvas:focus-visible {
+#invaders-canvas:focus-visible,
+#tank-canvas:focus-visible {
   outline: 3px solid var(--accent);
   outline-offset: 3px;
 }
@@ -769,7 +770,8 @@ button, input, textarea { font: inherit; }
 #brick-canvas,
 #pong-canvas,
 #snake-canvas,
-#invaders-canvas {
+#invaders-canvas,
+#tank-canvas {
   width: 100%;
   height: auto;
   display: block;
@@ -3253,7 +3255,7 @@ button, input, textarea { font: inherit; }
 
 .arcade-transition-center {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   align-items: center;
   border-left: 1px solid rgba(255,255,255,.15);
   border-right: 1px solid rgba(255,255,255,.15);
@@ -3341,7 +3343,7 @@ button, input, textarea { font: inherit; }
   margin: 0 0 32px;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 0;
   border: 1px solid rgba(242,213,77,.28);
   border-radius: 0;
@@ -3602,5 +3604,158 @@ button, input, textarea { font: inherit; }
 
   .arcade-editorial .game-cabinet {
     padding: 10px;
+  }
+}
+
+
+/* ==========================================================================
+   Tank Duel
+   ========================================================================== */
+
+.tank-control-deck {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr 1fr .82fr;
+  gap: 1px;
+  margin-top: 14px;
+  border: 1px solid rgba(242,213,77,.25);
+  background: rgba(242,213,77,.25);
+  font-family: "DM Mono", monospace;
+}
+
+.tank-control,
+.tank-fire-block {
+  min-width: 0;
+  padding: 14px;
+  background: #0d131b;
+}
+
+.tank-control {
+  display: grid;
+  gap: 10px;
+}
+
+.tank-control > span,
+.tank-control-head > span,
+.tank-fire-block > span {
+  color: rgba(247,240,220,.52);
+  font-size: .58rem;
+  letter-spacing: .08em;
+}
+
+.tank-control-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.tank-control-head strong {
+  color: var(--editorial-yellow);
+  font-size: .78rem;
+  font-weight: 500;
+}
+
+.tank-control select {
+  width: 100%;
+  min-height: 38px;
+  padding: 0 10px;
+  border: 1px solid rgba(242,213,77,.38);
+  border-radius: 0;
+  background: #090d13;
+  color: #f7f0dc;
+  font: 500 .72rem/1 "DM Mono", monospace;
+}
+
+.tank-control input[type="range"] {
+  width: 100%;
+  accent-color: var(--editorial-yellow);
+  cursor: pointer;
+}
+
+.tank-stepper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+
+.tank-stepper .mini-control {
+  width: 100%;
+  border-radius: 0;
+  font-size: 1rem;
+}
+
+.tank-fire-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.tank-fire {
+  width: 100%;
+  min-height: 60px;
+  margin: 0;
+  font-size: .9rem;
+  letter-spacing: .08em;
+}
+
+.tank-fire:disabled {
+  opacity: .38;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+#tank-canvas {
+  image-rendering: pixelated;
+}
+
+@media (max-width: 980px) {
+  .tank-control-deck {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .arcade-editorial .arcade-switcher {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .arcade-editorial .arcade-tab:last-child {
+    grid-column: 1 / -1;
+    border-left: 0;
+    border-top: 1px solid rgba(242,213,77,.22);
+  }
+
+  .arcade-transition-center {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .arcade-transition-center span:nth-child(3) {
+    border-top: 0;
+    border-left: 1px solid rgba(255,255,255,.15);
+  }
+
+  .arcade-transition-center span:nth-child(4),
+  .arcade-transition-center span:nth-child(5) {
+    border-top: 1px solid rgba(255,255,255,.15);
+  }
+
+  .arcade-transition-center span:nth-child(4) {
+    border-left: 0;
+  }
+
+  .tank-control-deck {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .tank-control,
+  .tank-fire-block {
+    padding: 12px;
+  }
+
+  .tank-fire {
+    min-height: 54px;
   }
 }

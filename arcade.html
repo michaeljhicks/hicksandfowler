@@ -4,7 +4,7 @@
     <title>Arcade | Hicks &amp; Fowler</title>
     <meta
       name="description"
-      content="Play Hicks & Fowler's retro Brick Breaker, Pong, Snake, and Space Invaders-style arcade games and compete for global high scores."
+      content="Play Hicks & Fowler's retro Brick Breaker, Pong, Snake, Space Invaders-style, and Tank Duel arcade games and compete for global high scores."
     />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -16,9 +16,10 @@
       href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..900&family=DM+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Newsreader:opsz,wght@6..72,300..600&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="assets/css/styles.css?v=20261004-editorial6" />
+    <link rel="stylesheet" href="assets/css/styles.css?v=20261004-tank1" />
     <script defer src="assets/js/main.js"></script>
-    <script defer src="assets/js/arcade.js?v=20261004-2"></script>
+    <script defer src="assets/js/tank-duel.js?v=20261004-1"></script>
+    <script defer src="assets/js/arcade.js?v=20261004-tank1"></script>
   </head>
 
   <body class="interior-editorial arcade-editorial">
@@ -64,7 +65,7 @@
           <div class="arcade-editorial-title-grid">
             <h1>ARCADE</h1>
             <div class="arcade-editorial-deck">
-              <p>Four tiny retro games. Four global leaderboards.</p>
+              <p>Five tiny retro games. Five global leaderboards.</p>
               <p class="editorial-serif">
                 Three initials between you and immortality.
               </p>
@@ -91,6 +92,7 @@
           <span>02 PONG</span>
           <span>03 SNAKE</span>
           <span>04 INVADERS</span>
+          <span>05 TANKS</span>
         </div>
         <div class="arcade-transition-right">PLAY</div>
       </section>
@@ -157,6 +159,17 @@
               data-game-tab="invaders"
             >
               Space Invaders
+            </button>
+            <button
+              class="arcade-tab"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              aria-controls="tank-panel"
+              id="tank-tab"
+              data-game-tab="tank"
+            >
+              Tank Duel
             </button>
           </div>
 
@@ -473,6 +486,173 @@
                 </p>
                 <p class="score-footnote">
                   *Worldwide means anyone who found this website.
+                </p>
+              </aside>
+            </div>
+          </section>
+
+          <section
+            class="game-panel"
+            id="tank-panel"
+            role="tabpanel"
+            aria-labelledby="tank-tab"
+            data-game-panel="tank"
+            hidden
+          >
+            <div class="game-layout tank-game-layout">
+              <div class="game-cabinet">
+                <div class="cabinet-topline">
+                  <div><small>GAME 05</small><strong>TANK DUEL</strong></div>
+                  <div class="game-stats" aria-live="polite">
+                    <span>WINS <b id="tank-streak">0</b></span>
+                    <span>YOU <b id="tank-player-hp">100</b></span>
+                    <span>CPU <b id="tank-cpu-hp">100</b></span>
+                  </div>
+                </div>
+
+                <div class="screen-shell">
+                  <canvas
+                    id="tank-canvas"
+                    width="760"
+                    height="520"
+                    tabindex="0"
+                    aria-label="Tank Duel artillery game. Adjust angle and power, then fire at the computer tank."
+                  ></canvas>
+                  <div class="screen-overlay" id="tank-overlay">
+                    <strong>TANK DUEL</strong>
+                    <span
+                      >Pick a difficulty. Set your angle. Set your power. Then
+                      ruin somebody's afternoon.</span
+                    >
+                    <button type="button" class="pixel-btn" id="tank-start">
+                      START BATTLE
+                    </button>
+                  </div>
+                </div>
+
+                <div class="tank-control-deck" aria-label="Tank Duel controls">
+                  <label class="tank-control tank-control-difficulty">
+                    <span>CPU DIFFICULTY</span>
+                    <select id="tank-difficulty">
+                      <option value="easy">EASY</option>
+                      <option value="medium" selected>MEDIUM</option>
+                      <option value="hard">HARD</option>
+                    </select>
+                  </label>
+
+                  <div class="tank-control">
+                    <div class="tank-control-head">
+                      <span>ANGLE</span>
+                      <strong><span id="tank-angle-value">45</span>°</strong>
+                    </div>
+                    <input
+                      id="tank-angle"
+                      type="range"
+                      min="10"
+                      max="85"
+                      step="1"
+                      value="45"
+                      aria-label="Trajectory angle"
+                    />
+                    <div class="tank-stepper">
+                      <button
+                        type="button"
+                        class="mini-control"
+                        id="tank-angle-down"
+                      >
+                        −
+                      </button>
+                      <button
+                        type="button"
+                        class="mini-control"
+                        id="tank-angle-up"
+                      >
+                        +
+                      </button>
+                    </div>
+                  </div>
+
+                  <div class="tank-control">
+                    <div class="tank-control-head">
+                      <span>POWER</span>
+                      <strong><span id="tank-power-value">68</span></strong>
+                    </div>
+                    <input
+                      id="tank-power"
+                      type="range"
+                      min="20"
+                      max="100"
+                      step="1"
+                      value="68"
+                      aria-label="Shot power"
+                    />
+                    <div class="tank-stepper">
+                      <button
+                        type="button"
+                        class="mini-control"
+                        id="tank-power-down"
+                      >
+                        −
+                      </button>
+                      <button
+                        type="button"
+                        class="mini-control"
+                        id="tank-power-up"
+                      >
+                        +
+                      </button>
+                    </div>
+                  </div>
+
+                  <div class="tank-fire-block">
+                    <span id="tank-turn-label">YOUR TURN</span>
+                    <button
+                      type="button"
+                      class="pixel-btn tank-fire"
+                      id="tank-fire"
+                    >
+                      FIRE
+                    </button>
+                  </div>
+                </div>
+
+                <div class="cabinet-controls">
+                  <span>ANGLE: ← → · POWER: ↑ ↓ · FIRE: SPACE</span>
+                  <div>
+                    <button type="button" class="mini-control" id="tank-pause">
+                      PAUSE
+                    </button>
+                    <button
+                      type="button"
+                      class="mini-control"
+                      id="tank-mute"
+                      aria-pressed="false"
+                    >
+                      SOUND ON
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <aside
+                class="scoreboard"
+                aria-labelledby="tank-leaderboard-title"
+              >
+                <div class="scoreboard-head">
+                  <span>WORLDWIDE WIN STREAKS*</span>
+                  <h2 id="tank-leaderboard-title">TOP 3</h2>
+                </div>
+                <ol class="score-list" id="tank-leaderboard">
+                  <li><span>01</span><b>---</b><strong>------</strong></li>
+                  <li><span>02</span><b>---</b><strong>------</strong></li>
+                  <li><span>03</span><b>---</b><strong>------</strong></li>
+                </ol>
+                <p class="score-status" id="tank-status" aria-live="polite">
+                  Connecting to the mothership…
+                </p>
+                <p class="score-footnote">
+                  *Score = consecutive wins before the computer finally humbles
+                  you.
                 </p>
               </aside>
             </div>

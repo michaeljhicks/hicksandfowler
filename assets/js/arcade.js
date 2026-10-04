@@ -36,7 +36,8 @@
     "brick-breaker": "brick",
     pong: "pong",
     snake: "snake",
-    "space-invaders": "invaders"
+    "space-invaders": "invaders",
+    "tank-duel": "tank"
   };
 
   function renderLeaderboard(game, rows) {
@@ -53,7 +54,7 @@
       const score = document.createElement("strong");
       rank.textContent = String(i + 1).padStart(2, "0");
       initials.textContent = row?.initials || "---";
-      score.textContent = row ? formatScore(row.score) : "------";
+      score.textContent = row ? (game === "tank-duel" ? `${row.score} WIN${Number(row.score) === 1 ? "" : "S"}` : formatScore(row.score)) : "------";
       li.append(rank, initials, score);
       list.appendChild(li);
     }
@@ -63,7 +64,8 @@
     "brick-breaker": [],
     pong: [],
     snake: [],
-    "space-invaders": []
+    "space-invaders": [],
+    "tank-duel": []
   };
 
   async function refreshLeaderboard(game) {
@@ -95,7 +97,7 @@
     const qualifies = rows.length < 3 || score > Number(rows[2]?.score || -1);
     if (!qualifies) return;
     pendingHighScore = { game, score: Math.floor(score) };
-    highScoreValue.textContent = formatScore(score);
+    highScoreValue.textContent = game === "tank-duel" ? `${Math.floor(score)} WIN${Math.floor(score) === 1 ? "" : "S"}` : formatScore(score);
     submitStatus.textContent = "";
     initialsInput.value = "";
     highScoreEntry.hidden = false;
@@ -1158,6 +1160,12 @@
   if (document.getElementById("pong-canvas")) games.pong = new PongSurvival();
   if (document.getElementById("snake-canvas")) games.snake = new SnakeGame();
   if (document.getElementById("invaders-canvas")) games.invaders = new SpaceInvadersGame();
+  if (document.getElementById("tank-canvas") && window.HFTankDuel) {
+    games.tank = new window.HFTankDuel({
+      onGameOver: (score) => handleGameOver("tank-duel", score),
+      beep
+    });
+  }
 
   tabs.forEach((tab) => {
     tab.addEventListener("click", () => {
@@ -1173,7 +1181,8 @@
         panel.hidden = !active;
       });
       Object.entries(games).forEach(([key, game]) => {
-        if (key !== target && game.state === "running") game.pause();
+        const activeStates = ["running", "player-turn", "projectile", "cpu-thinking"];
+        if (key !== target && activeStates.includes(game.state) && typeof game.pause === "function") game.pause();
       });
       highScoreEntry.hidden = true;
       pendingHighScore = null;
@@ -1184,4 +1193,5 @@
   if (document.getElementById("pong-leaderboard")) refreshLeaderboard("pong");
   if (document.getElementById("snake-leaderboard")) refreshLeaderboard("snake");
   if (document.getElementById("invaders-leaderboard")) refreshLeaderboard("space-invaders");
+  if (document.getElementById("tank-leaderboard")) refreshLeaderboard("tank-duel");
 })();
