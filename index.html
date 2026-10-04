@@ -4,23 +4,24 @@
     <title>Hicks &amp; Fowler | Albuquerque Live Music</title>
     <meta
       name="description"
-      content="Hicks & Fowler — live music from Albuquerque, New Mexico. Shows, music, band info, and booking contact."
+      content="Hicks & Fowler — live music from Albuquerque, New Mexico. Shows, music, band info, arcade games, and booking contact."
     />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#113f83" />
+    <meta name="theme-color" content="#f3f0e8" />
     <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..900&family=Instrument+Serif:ital@0;1&family=Newsreader:opsz,wght@6..72,300..600&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="assets/css/styles.css?v=20261003-2" />
+    <link rel="stylesheet" href="assets/css/styles.css?v=20261004-editorial1" />
     <script defer src="assets/js/main.js"></script>
   </head>
-  <body>
-    <header class="site-header">
+
+  <body class="home-editorial">
+    <header class="site-header editorial-header">
       <div class="wrap nav">
         <a class="brand" href="index.html" aria-label="Hicks & Fowler home">
           <span class="brand-mark">H&amp;F</span>
@@ -43,52 +44,82 @@
           <a href="arcade.html">Arcade</a>
           <a href="about.html">About</a>
           <a href="contact.html" class="nav-cta"
-            >Contact <span aria-hidden="true">↗</span></a
+            >Book us <span aria-hidden="true">↗</span></a
           >
         </nav>
       </div>
     </header>
 
-    <main>
-      <section class="hero">
-        <div class="wrap hero-grid">
-          <div class="hero-copy">
-            <p class="eyebrow">Albuquerque · New Mexico</p>
-            <h1>
-              Hicks &amp; Fowler.<br /><span class="serif">Turn it up.</span>
+    <main class="editorial-home">
+      <section class="editorial-hero" aria-labelledby="home-title">
+        <div class="wrap editorial-frame">
+          <div class="editorial-keyline editorial-keyline-heavy"></div>
+
+          <div class="editorial-meta">
+            <span>01 / LIVE MUSIC</span>
+            <span>ALBUQUERQUE, NEW MEXICO</span>
+          </div>
+
+          <div class="editorial-title-lockup">
+            <h1 id="home-title">
+              <span>HICKS</span>
+              <span>&amp; FOWLER</span>
             </h1>
-            <p class="lede">
-              Funk, indie, alternative, and familiar favorites — built for a
-              live room.
-            </p>
-            <div class="actions">
-              <a class="btn primary" href="shows.html"
-                >See shows <span aria-hidden="true">→</span></a
-              >
-              <a class="btn ghost" href="contact.html">Booking</a>
+          </div>
+
+          <div class="editorial-keyline"></div>
+
+          <div class="editorial-hero-bottom">
+            <div class="editorial-tagline">
+              <span class="editorial-serif">Turn it up.</span>
             </div>
-            <div class="quick-proof">
-              <span><i></i>Live band</span>
-              <span><i></i>Albuquerque based</span>
-              <span><i></i>Private + public events</span>
+
+            <div class="editorial-intro">
+              <p>
+                Funk, indie, alternative, and familiar favorites — built for a
+                live room.
+              </p>
+              <div class="editorial-actions">
+                <a
+                  href="shows.html"
+                  class="editorial-button editorial-button-dark"
+                  >See shows <span aria-hidden="true">↗</span></a
+                >
+                <a href="contact.html" class="editorial-button"
+                  >Booking <span aria-hidden="true">↗</span></a
+                >
+              </div>
             </div>
           </div>
 
-          <div class="hero-art" aria-label="Abstract Hicks and Fowler graphic">
-            <div class="poster">
-              <span class="poster-top">HICKS</span>
-              <span class="amp">&amp;</span>
-              <span class="poster-bottom">FOWLER</span>
-              <div class="disc" aria-hidden="true"></div>
-              <div class="ribbon ribbon-a" aria-hidden="true"></div>
-              <div class="ribbon ribbon-b" aria-hidden="true"></div>
+          <div
+            class="editorial-visual"
+            aria-label="Hicks and Fowler abstract music poster"
+          >
+            <div class="visual-black">
+              <span class="visual-small">H&amp;F / ABQ</span>
+              <strong>LIVE</strong>
             </div>
-            <div class="float-note note-one">
-              <small>Live</small>Albuquerque
+            <div class="visual-yellow">
+              <span>FUNK</span>
+              <span>INDIE</span>
+              <span>ALT</span>
             </div>
-            <div class="float-note note-two">
-              <small>Sound</small>Funk · Indie · Alt
+            <div class="visual-blue">
+              <span class="visual-serif">&amp;</span>
+              <strong>LOUD<br />ENOUGH.</strong>
             </div>
+            <div class="visual-disc" aria-hidden="true">
+              <i></i>
+            </div>
+          </div>
+
+          <div class="editorial-keyline"></div>
+
+          <div class="editorial-facts">
+            <span>LIVE BAND</span>
+            <span>ALBUQUERQUE BASED</span>
+            <span>PRIVATE + PUBLIC EVENTS</span>
           </div>
         </div>
       </section>
@@ -170,55 +201,104 @@
         </div>
       </div>
 
-      <section class="home-links">
-        <div class="wrap card-grid">
-          <a class="feature-card" href="shows.html">
-            <span class="card-num">01</span>
-            <h2>Shows</h2>
-            <p>Upcoming dates, venues, and event details.</p>
-            <span class="arrow">↗</span>
-          </a>
-          <a class="feature-card accent" href="music.html">
-            <span class="card-num">02</span>
-            <h2>Music</h2>
-            <p>Listen, watch, and get a feel for the band.</p>
-            <span class="arrow">↗</span>
-          </a>
-          <a class="feature-card arcade-card" href="arcade.html">
-            <span class="card-num">03</span>
-            <h2>Arcade</h2>
-            <p>Brick Breaker, Pong, and global high-score bragging rights.</p>
-            <span class="arrow">↗</span>
-          </a>
-          <a class="feature-card dark" href="contact.html">
-            <span class="card-num">04</span>
-            <h2>Book us</h2>
-            <p>Private events, venues, festivals, and general inquiries.</p>
-            <span class="arrow">↗</span>
-          </a>
+      <section class="editorial-directory" aria-labelledby="explore-title">
+        <div class="wrap editorial-frame">
+          <div class="directory-head">
+            <p class="directory-kicker">THE SHORT VERSION</p>
+            <h2 id="explore-title">
+              Everything worth<br /><span class="editorial-serif"
+                >clicking.</span
+              >
+            </h2>
+          </div>
+
+          <div class="directory-list">
+            <a class="directory-row" href="shows.html">
+              <span class="directory-num">01</span>
+              <span class="directory-name">Shows</span>
+              <span class="directory-desc"
+                >Upcoming dates, venues, and event details.</span
+              >
+              <span class="directory-arrow" aria-hidden="true">↗</span>
+            </a>
+
+            <a class="directory-row" href="music.html">
+              <span class="directory-num">02</span>
+              <span class="directory-name">Music</span>
+              <span class="directory-desc"
+                >Listen, watch, and get a feel for the band.</span
+              >
+              <span class="directory-arrow" aria-hidden="true">↗</span>
+            </a>
+
+            <a class="directory-row directory-row-accent" href="arcade.html">
+              <span class="directory-num">03</span>
+              <span class="directory-name">Arcade</span>
+              <span class="directory-desc"
+                >Four retro games. Global high scores. Waste time
+                responsibly.</span
+              >
+              <span class="directory-arrow" aria-hidden="true">↗</span>
+            </a>
+
+            <a class="directory-row" href="about.html">
+              <span class="directory-num">04</span>
+              <span class="directory-name">About</span>
+              <span class="directory-desc"
+                >A biography presented with the journalistic rigor it
+                deserves.</span
+              >
+              <span class="directory-arrow" aria-hidden="true">↗</span>
+            </a>
+
+            <a class="directory-row directory-row-dark" href="contact.html">
+              <span class="directory-num">05</span>
+              <span class="directory-name">Book us</span>
+              <span class="directory-desc"
+                >Venues, private events, festivals, and general inquiries.</span
+              >
+              <span class="directory-arrow" aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="editorial-statement">
+        <div class="wrap editorial-frame">
+          <div class="editorial-keyline editorial-keyline-heavy"></div>
+          <div class="statement-grid">
+            <p class="statement-label">HICKS &amp; FOWLER / 2026</p>
+            <p class="statement-copy">
+              Funk. Indie. Alternative.<br /><span class="editorial-serif"
+                >Familiar favorites.</span
+              >
+            </p>
+            <a
+              class="statement-link"
+              href="https://www.facebook.com/hicksphillyfowler"
+              target="_blank"
+              rel="noopener"
+              >Follow on Facebook ↗</a
+            >
+          </div>
         </div>
       </section>
     </main>
 
-    <footer class="site-footer">
-      <div class="wrap footer-inner">
-        <div>
-          <strong>Hicks &amp; Fowler</strong>
+    <footer class="site-footer editorial-footer">
+      <div class="wrap editorial-footer-grid">
+        <div class="footer-wordmark">HICKS<br />&amp; FOWLER</div>
+        <div class="footer-meta">
           <span>Albuquerque, New Mexico</span>
+          <span>© <span data-year></span> Hicks &amp; Fowler</span>
         </div>
         <div class="footer-links">
           <a href="shows.html">Shows</a>
           <a href="music.html">Music</a>
           <a href="arcade.html">Arcade</a>
+          <a href="about.html">About</a>
           <a href="contact.html">Contact</a>
-          <a
-            href="https://www.facebook.com/hicksphillyfowler"
-            target="_blank"
-            rel="noopener"
-            >Facebook ↗</a
-          >
         </div>
-        <small>© <span data-year></span> Hicks &amp; Fowler</small>
       </div>
     </footer>
   </body>
