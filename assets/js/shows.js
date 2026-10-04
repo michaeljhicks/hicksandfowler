@@ -6,10 +6,8 @@
   const TABLE = "shows";
 
   const list = document.getElementById("shows-list");
-  const emptyState = document.getElementById("shows-empty");
-  const errorState = document.getElementById("shows-error");
 
-  if (!list || !emptyState || !errorState) return;
+  if (!list) return;
 
   const headers = {
     apikey: SUPABASE_KEY,
@@ -116,20 +114,22 @@
       const shows = await response.json();
 
       if (!shows.length) {
-        list.innerHTML = "";
-        emptyState.hidden = false;
-        errorState.hidden = true;
+        list.innerHTML = `
+          <div class="shows-loading">
+            <span>No upcoming shows currently posted.</span>
+          </div>
+        `;
         return;
       }
 
       list.innerHTML = shows.map(renderShow).join("");
-      emptyState.hidden = true;
-      errorState.hidden = true;
     } catch (error) {
       console.error(error);
-      list.innerHTML = "";
-      emptyState.hidden = true;
-      errorState.hidden = false;
+      list.innerHTML = `
+        <div class="shows-error">
+          The calendar is temporarily unavailable. Please check back shortly.
+        </div>
+      `;
     }
   }
 
