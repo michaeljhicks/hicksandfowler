@@ -16,8 +16,9 @@
       href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..900&family=Instrument+Serif:ital@0;1&family=Newsreader:opsz,wght@6..72,300..600&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="assets/css/styles.css?v=20261004-editorial3" />
+    <link rel="stylesheet" href="assets/css/styles.css?v=20261004-showsdb1" />
     <script defer src="assets/js/main.js"></script>
+    <script defer src="assets/js/shows.js?v=20261004-1"></script>
   </head>
 
   <body class="interior-editorial shows-editorial">
@@ -74,7 +75,7 @@
 
       <section class="shows-list-section">
         <div class="wrap editorial-frame">
-          <div class="shows-list-head">
+          <div class="shows-list-head" aria-hidden="true">
             <span>DATE</span>
             <span>VENUE / EVENT</span>
             <span>LOCATION</span>
@@ -82,9 +83,13 @@
             <span></span>
           </div>
 
-          <div class="shows-empty">
-            <div class="shows-empty-num">00</div>
+          <div id="shows-list" class="shows-dynamic-list" aria-live="polite">
+            <div class="shows-loading">
+              <span>Checking the calendar…</span>
+            </div>
+          </div>
 
+          <div id="shows-empty" class="shows-empty shows-empty-clean" hidden>
             <div class="shows-empty-copy">
               <p class="shows-empty-kicker">CURRENTLY ON THE CALENDAR</p>
               <h2>
@@ -100,6 +105,10 @@
             <a class="shows-book-link" href="contact.html">
               Book Hicks &amp; Fowler <span aria-hidden="true">↗</span>
             </a>
+          </div>
+
+          <div id="shows-error" class="shows-error" hidden>
+            The calendar is temporarily unavailable. Please check back shortly.
           </div>
 
           <div class="editorial-keyline"></div>
