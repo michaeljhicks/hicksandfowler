@@ -2,22 +2,26 @@
 <html lang="en">
   <head>
     <title>Music | Hicks &amp; Fowler</title>
-    <meta name="description" content="Listen to and watch Hicks & Fowler." />
+    <meta
+      name="description"
+      content="Listen to, watch, and follow Albuquerque band Hicks & Fowler."
+    />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#113f83" />
+    <meta name="theme-color" content="#f3f0e8" />
     <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..900&family=Instrument+Serif:ital@0;1&family=Newsreader:opsz,wght@6..72,300..600&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="assets/css/styles.css?v=20261003-2" />
+    <link rel="stylesheet" href="assets/css/styles.css?v=20261004-editorial4" />
     <script defer src="assets/js/main.js"></script>
   </head>
-  <body>
-    <header class="site-header">
+
+  <body class="interior-editorial music-editorial">
+    <header class="site-header editorial-header">
       <div class="wrap nav">
         <a class="brand" href="index.html" aria-label="Hicks & Fowler home">
           <span class="brand-mark">H&amp;F</span>
@@ -36,70 +40,121 @@
 
         <nav class="nav-links" id="site-nav" aria-label="Primary navigation">
           <a href="shows.html">Shows</a>
-          <a href="music.html">Music</a>
+          <a href="music.html" aria-current="page">Music</a>
           <a href="arcade.html">Arcade</a>
           <a href="about.html">About</a>
           <a href="contact.html" class="nav-cta"
-            >Contact <span aria-hidden="true">↗</span></a
+            >Book us <span aria-hidden="true">↗</span></a
           >
         </nav>
       </div>
     </header>
 
-    <main class="subpage">
-      <section class="page-hero">
-        <div class="wrap narrow">
-          <p class="eyebrow">Listen + watch</p>
-          <h1>Music.<br /><span class="serif">No long bio required.</span></h1>
-          <p class="lede">
-            A few strong clips and links will do more than a wall of text.
-          </p>
+    <main class="editorial-interior">
+      <section class="music-masthead">
+        <div class="wrap editorial-frame">
+          <div class="editorial-keyline editorial-keyline-heavy"></div>
+
+          <div class="editorial-meta">
+            <span>04 / LISTEN + WATCH</span>
+            <span>NO LONG BIO REQUIRED</span>
+          </div>
+
+          <div class="music-title-grid">
+            <h1>MUSIC</h1>
+            <p class="music-deck">
+              A few strong clips and links will tell you more than a wall of
+              adjectives ever could.
+            </p>
+          </div>
+
+          <div class="editorial-keyline"></div>
         </div>
       </section>
 
-      <section class="compact-section">
-        <div class="wrap narrow">
-          <div class="link-stack">
-            <!-- Replace the href values below with your real links. -->
-            <a class="big-link disabled-link" href="#" aria-disabled="true">
-              <span><small>Streaming</small>Spotify / Apple Music</span
-              ><b>ADD LINK</b>
-            </a>
-            <a class="big-link disabled-link" href="#" aria-disabled="true">
-              <span><small>Video</small>YouTube / Live Clips</span
-              ><b>ADD LINK</b>
-            </a>
+      <section class="music-directory">
+        <div class="wrap editorial-frame">
+          <div class="music-intro-grid">
+            <p class="music-intro-label">THE SHORT VERSION</p>
+            <p class="music-intro-copy">
+              Listen.<br />
+              Watch.<br />
+              <span class="editorial-serif">Follow.</span>
+            </p>
+          </div>
+
+          <div class="music-link-list">
+            <div class="music-link-row music-link-row-muted">
+              <span class="music-link-num">01</span>
+              <span class="music-link-name">Spotify</span>
+              <span class="music-link-desc">Streaming link coming soon.</span>
+              <span class="music-link-status">SOON</span>
+            </div>
+
+            <div class="music-link-row music-link-row-muted">
+              <span class="music-link-num">02</span>
+              <span class="music-link-name">YouTube</span>
+              <span class="music-link-desc"
+                >Live clips and video coming soon.</span
+              >
+              <span class="music-link-status">SOON</span>
+            </div>
+
             <a
-              class="big-link"
+              class="music-link-row music-link-row-accent"
               href="https://www.facebook.com/hicksphillyfowler"
               target="_blank"
               rel="noopener"
             >
-              <span><small>Social</small>Facebook</span><b>OPEN ↗</b>
+              <span class="music-link-num">03</span>
+              <span class="music-link-name">Facebook</span>
+              <span class="music-link-desc"
+                >Shows, photos, posts, and assorted evidence.</span
+              >
+              <span class="music-link-arrow" aria-hidden="true">↗</span>
             </a>
+          </div>
+
+          <div class="music-statement">
+            <span class="music-statement-label">CURRENT PROGRAMMING</span>
+            <p>
+              Funk. Indie. Alternative.<br />
+              <span class="editorial-serif">Whatever works.</span>
+            </p>
+          </div>
+
+          <div class="editorial-keyline"></div>
+        </div>
+      </section>
+
+      <section class="music-cta">
+        <div class="wrap editorial-frame">
+          <div class="music-cta-grid">
+            <p class="music-cta-label">HEAR IT LIVE</p>
+            <p class="music-cta-copy">
+              The recordings are useful.<br />
+              <span class="editorial-serif">The room is better.</span>
+            </p>
+            <a class="music-cta-link" href="shows.html">See upcoming shows ↗</a>
           </div>
         </div>
       </section>
     </main>
-    <footer class="site-footer">
-      <div class="wrap footer-inner">
-        <div>
-          <strong>Hicks &amp; Fowler</strong>
+
+    <footer class="site-footer editorial-footer">
+      <div class="wrap editorial-footer-grid">
+        <div class="footer-wordmark">HICKS<br />&amp; FOWLER</div>
+        <div class="footer-meta">
           <span>Albuquerque, New Mexico</span>
+          <span>© <span data-year></span> Hicks &amp; Fowler</span>
         </div>
         <div class="footer-links">
           <a href="shows.html">Shows</a>
           <a href="music.html">Music</a>
           <a href="arcade.html">Arcade</a>
+          <a href="about.html">About</a>
           <a href="contact.html">Contact</a>
-          <a
-            href="https://www.facebook.com/hicksphillyfowler"
-            target="_blank"
-            rel="noopener"
-            >Facebook ↗</a
-          >
         </div>
-        <small>© <span data-year></span> Hicks &amp; Fowler</small>
       </div>
     </footer>
   </body>
