@@ -1152,12 +1152,12 @@
   // Tabs. Pause whichever game is being hidden so nothing runs offscreen.
   const tabs = [...document.querySelectorAll("[data-game-tab]")];
   const panels = [...document.querySelectorAll("[data-game-panel]")];
-  const games = {
-    brick: new BrickBreaker(),
-    pong: new PongSurvival(),
-    snake: new SnakeGame(),
-    invaders: new SpaceInvadersGame()
-  };
+  const games = {};
+
+  if (document.getElementById("brick-canvas")) games.brick = new BrickBreaker();
+  if (document.getElementById("pong-canvas")) games.pong = new PongSurvival();
+  if (document.getElementById("snake-canvas")) games.snake = new SnakeGame();
+  if (document.getElementById("invaders-canvas")) games.invaders = new SpaceInvadersGame();
 
   tabs.forEach((tab) => {
     tab.addEventListener("click", () => {
@@ -1180,8 +1180,8 @@
     });
   });
 
-  refreshLeaderboard("brick-breaker");
-  refreshLeaderboard("pong");
-  refreshLeaderboard("snake");
-  refreshLeaderboard("space-invaders");
+  if (document.getElementById("brick-leaderboard")) refreshLeaderboard("brick-breaker");
+  if (document.getElementById("pong-leaderboard")) refreshLeaderboard("pong");
+  if (document.getElementById("snake-leaderboard")) refreshLeaderboard("snake");
+  if (document.getElementById("invaders-leaderboard")) refreshLeaderboard("space-invaders");
 })();

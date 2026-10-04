@@ -4,7 +4,7 @@
     <title>Arcade | Hicks &amp; Fowler</title>
     <meta
       name="description"
-      content="Play Hicks & Fowler's retro Brick Breaker and Pong arcade games and compete for global high scores."
+      content="Play Hicks & Fowler's retro Brick Breaker, Pong, Snake, and Space Invaders-style arcade games and compete for global high scores."
     />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -16,11 +16,12 @@
       href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="assets/css/styles.css?v=20261003-2" />
+    <link rel="stylesheet" href="assets/css/styles.css?v=20261004-2" />
     <script defer src="assets/js/main.js"></script>
-    <script defer src="assets/js/arcade.js?v=20261003-2"></script>
+    <script defer src="assets/js/arcade.js?v=20261004-2"></script>
   </head>
   <body>
+    <!-- H&F Arcade four-game build: 2026-10-04-2 -->
     <header class="site-header">
       <div class="wrap nav">
         <a class="brand" href="index.html" aria-label="Hicks & Fowler home">
@@ -58,8 +59,8 @@
             H&amp;F Arcade.<br /><span class="serif">Glory lasts forever.</span>
           </h1>
           <p class="lede">
-            Two tiny retro games. One global leaderboard. Three initials between
-            you and immortality.
+            Four tiny retro games. Four global leaderboards. Three initials
+            between you and immortality.
           </p>
         </div>
       </section>
@@ -92,6 +93,28 @@
               data-game-tab="pong"
             >
               Pong Survival
+            </button>
+            <button
+              class="arcade-tab"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              aria-controls="snake-panel"
+              id="snake-tab"
+              data-game-tab="snake"
+            >
+              Snake
+            </button>
+            <button
+              class="arcade-tab"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              aria-controls="invaders-panel"
+              id="invaders-tab"
+              data-game-tab="invaders"
+            >
+              Space Invaders
             </button>
           </div>
 
@@ -242,6 +265,168 @@
                   <li><span>03</span><b>---</b><strong>------</strong></li>
                 </ol>
                 <p class="score-status" id="pong-status" aria-live="polite">
+                  Connecting to the mothership…
+                </p>
+                <p class="score-footnote">
+                  *Worldwide means anyone who found this website.
+                </p>
+              </aside>
+            </div>
+          </section>
+
+          <section
+            class="game-panel"
+            id="snake-panel"
+            role="tabpanel"
+            aria-labelledby="snake-tab"
+            data-game-panel="snake"
+            hidden
+          >
+            <div class="game-layout">
+              <div class="game-cabinet">
+                <div class="cabinet-topline">
+                  <div><small>GAME 03</small><strong>SNAKE</strong></div>
+                  <div class="game-stats" aria-live="polite">
+                    <span>SCORE <b id="snake-score">000000</b></span>
+                    <span>LENGTH <b id="snake-length">5</b></span>
+                    <span>SPEED <b id="snake-speed">1</b></span>
+                  </div>
+                </div>
+                <div class="screen-shell">
+                  <canvas
+                    id="snake-canvas"
+                    width="760"
+                    height="520"
+                    tabindex="0"
+                    aria-label="Snake game. Steer with arrow keys, WASD, or swipe on the game screen."
+                  ></canvas>
+                  <div class="screen-overlay" id="snake-overlay">
+                    <strong>SNAKE</strong>
+                    <span
+                      >Eat. Grow. Avoid the walls and, regrettably,
+                      yourself.</span
+                    >
+                    <button type="button" class="pixel-btn" id="snake-start">
+                      START GAME
+                    </button>
+                  </div>
+                </div>
+                <div class="cabinet-controls">
+                  <span>MOVE: ↑ ↓ ← → / W A S D / SWIPE</span>
+                  <div>
+                    <button type="button" class="mini-control" id="snake-pause">
+                      PAUSE
+                    </button>
+                    <button
+                      type="button"
+                      class="mini-control"
+                      id="snake-mute"
+                      aria-pressed="false"
+                    >
+                      SOUND ON
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <aside
+                class="scoreboard"
+                aria-labelledby="snake-leaderboard-title"
+              >
+                <div class="scoreboard-head">
+                  <span>WORLDWIDE*</span>
+                  <h2 id="snake-leaderboard-title">TOP 3</h2>
+                </div>
+                <ol class="score-list" id="snake-leaderboard">
+                  <li><span>01</span><b>---</b><strong>------</strong></li>
+                  <li><span>02</span><b>---</b><strong>------</strong></li>
+                  <li><span>03</span><b>---</b><strong>------</strong></li>
+                </ol>
+                <p class="score-status" id="snake-status" aria-live="polite">
+                  Connecting to the mothership…
+                </p>
+                <p class="score-footnote">
+                  *Worldwide means anyone who found this website.
+                </p>
+              </aside>
+            </div>
+          </section>
+
+          <section
+            class="game-panel"
+            id="invaders-panel"
+            role="tabpanel"
+            aria-labelledby="invaders-tab"
+            data-game-panel="invaders"
+            hidden
+          >
+            <div class="game-layout">
+              <div class="game-cabinet">
+                <div class="cabinet-topline">
+                  <div>
+                    <small>GAME 04</small><strong>SPACE INVADERS</strong>
+                  </div>
+                  <div class="game-stats" aria-live="polite">
+                    <span>SCORE <b id="invaders-score">000000</b></span>
+                    <span>WAVE <b id="invaders-wave">1</b></span>
+                    <span>LIVES <b id="invaders-lives">3</b></span>
+                  </div>
+                </div>
+                <div class="screen-shell">
+                  <canvas
+                    id="invaders-canvas"
+                    width="760"
+                    height="520"
+                    tabindex="0"
+                    aria-label="Space Invaders-style game. Move with left and right arrows or A and D. Fire with space or tap the game screen."
+                  ></canvas>
+                  <div class="screen-overlay" id="invaders-overlay">
+                    <strong>SPACE INVADERS</strong>
+                    <span
+                      >Defend Earth. Or at least this particular rectangle of
+                      it.</span
+                    >
+                    <button type="button" class="pixel-btn" id="invaders-start">
+                      START GAME
+                    </button>
+                  </div>
+                </div>
+                <div class="cabinet-controls">
+                  <span>MOVE: ← → / A D / MOUSE · FIRE: SPACE / TAP</span>
+                  <div>
+                    <button
+                      type="button"
+                      class="mini-control"
+                      id="invaders-pause"
+                    >
+                      PAUSE
+                    </button>
+                    <button
+                      type="button"
+                      class="mini-control"
+                      id="invaders-mute"
+                      aria-pressed="false"
+                    >
+                      SOUND ON
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <aside
+                class="scoreboard"
+                aria-labelledby="invaders-leaderboard-title"
+              >
+                <div class="scoreboard-head">
+                  <span>WORLDWIDE*</span>
+                  <h2 id="invaders-leaderboard-title">TOP 3</h2>
+                </div>
+                <ol class="score-list" id="invaders-leaderboard">
+                  <li><span>01</span><b>---</b><strong>------</strong></li>
+                  <li><span>02</span><b>---</b><strong>------</strong></li>
+                  <li><span>03</span><b>---</b><strong>------</strong></li>
+                </ol>
+                <p class="score-status" id="invaders-status" aria-live="polite">
                   Connecting to the mothership…
                 </p>
                 <p class="score-footnote">
