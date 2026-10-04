@@ -1,5 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="16" fill="#113f83"/>
-  <circle cx="46" cy="18" r="10" fill="#f2d54d"/>
-  <text x="11" y="42" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#ffffff">H&amp;F</text>
+  <rect width="64" height="64" rx="10" fill="#0d0d0d"/>
+  <path d="M39 12v30.5c0 6.1-5.4 10.8-12.1 10.8S15 49.6 15 43.7s5.2-10.5 11.9-10.5c2.3 0 4.5.5 6.3 1.5V19.2L51 15.4v8.2L39 26.1V12z"
+        fill="#f3f0e8"/>
+  <circle cx="48.5" cy="16.5" r="5.5" fill="#f2d54d"/>
 </svg>
