@@ -679,6 +679,8 @@ button, input, textarea { font: inherit; }
   margin: 0 auto 20px;
   padding: 5px;
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 5px;
   border: 1px solid rgba(242,213,77,.26);
   border-radius: 999px;
@@ -704,7 +706,9 @@ button, input, textarea { font: inherit; }
 .mini-control:focus-visible,
 .initials-form input:focus-visible,
 #brick-canvas:focus-visible,
-#pong-canvas:focus-visible {
+#pong-canvas:focus-visible,
+#snake-canvas:focus-visible,
+#invaders-canvas:focus-visible {
   outline: 3px solid var(--accent);
   outline-offset: 3px;
 }
@@ -763,7 +767,9 @@ button, input, textarea { font: inherit; }
   mix-blend-mode: screen;
 }
 #brick-canvas,
-#pong-canvas {
+#pong-canvas,
+#snake-canvas,
+#invaders-canvas {
   width: 100%;
   height: auto;
   display: block;
@@ -895,8 +901,8 @@ button, input, textarea { font: inherit; }
 }
 @media (max-width: 700px) {
   .arcade-hero { padding-top: 66px; }
-  .arcade-switcher { width: 100%; }
-  .arcade-tab { flex: 1; padding-inline: 10px; font-size: .72rem; }
+  .arcade-switcher { width: 100%; border-radius: 18px; }
+  .arcade-tab { flex: 1 1 calc(50% - 5px); padding-inline: 10px; font-size: .72rem; }
   .game-cabinet { padding: 10px; border-radius: 18px; }
   .cabinet-topline { align-items: flex-start; flex-direction: column; }
   .game-stats { justify-content: flex-start; }
